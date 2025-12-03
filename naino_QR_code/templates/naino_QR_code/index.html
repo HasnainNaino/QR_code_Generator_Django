@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>
+        {% block title %}
+        naino tweet
+        {% endblock title %}
+    </title>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</head>
+<body>
+
+   <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Generate QR Code </a>
+        </div>
+    </nav>
+    
+    <div class="container" style='width:600px; border:1px solid #D3D3D3; padding:30px; border-radius:10px;  '>
+        <form action="{% url 'index'%}" method='post'>
+            {% csrf_token %}
+            {{form.as_p}}
+
+            <div class="text-center mt-3">
+                <button type="submit" class="btn btn-primary">Generate</button>
+            </div>
+        
+
+        </form>
+    </div>
+    
+    
+</body>
+</html>
